@@ -1,6 +1,6 @@
 import Input from "./Input"
 import TextArea from "./TextArea"
-import TextButton  from "../../components/user-stuff/myProducts/button"
+import TextButton  from "../../components/user-stuff/myProducts/Button"
 import Button from "../shop/Button"
 import Errorp from "./Errorp"
 

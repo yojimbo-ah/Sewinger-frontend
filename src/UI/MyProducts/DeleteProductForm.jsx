@@ -1,5 +1,5 @@
 
-import TextButton  from "../../components/user-stuff/myProducts/button"
+import TextButton  from "../../components/user-stuff/myProducts/Button"
 import Button from "../shop/Button"
 import { deleteProductMutation , queryClient } from "../../utils/http"
 import { useMutation } from "@tanstack/react-query"
