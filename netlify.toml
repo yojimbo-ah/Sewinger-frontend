@@ -4,7 +4,7 @@
   from = "/api/*"
 
   # This is your REAL backend URL on Render:
-  to = "https://your-backend-name.onrender.com/api/:splat"
+  to = "https://your-backend-name.onrender.com/:splat"
 
   # This status code makes it work as a proxy:
   status = 200
