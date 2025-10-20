@@ -105,7 +105,7 @@ export async function fetchSignupVer ({token , status}) {
 }
 
 export async function fetchProducts () {
-    const response = await fetch(`/api/product/normal`) ;
+    const response = await fetch(`https://sewinger-backend.onrender.com/product/normal`) ;
     if (!response.ok) {
         const error = new Error('error happened') ;
         error.info = await response.json() ;
