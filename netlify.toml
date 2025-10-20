@@ -1,0 +1,15 @@
+# This is the rewrite rule
+[[redirects]]
+  # This is the fake path your frontend will use:
+  from = "/api/*"
+
+  # This is your REAL backend URL on Render:
+  to = "https://your-backend-name.onrender.com/api/:splat"
+
+  # This status code makes it work as a proxy:
+  status = 200
+
+# If you already have build settings, add the rule ABOVE them
+[build]
+  command = "npm run build"
+  publish = "dist" # Or "build", etc.
