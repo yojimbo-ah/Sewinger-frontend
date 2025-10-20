@@ -6,7 +6,7 @@ import { CirclePlus , PackageSearch } from "lucide-react"
 import { NavLink } from "react-router-dom"
 
 import Item from "./Item"
-import Button from "./button"
+import Button from "./Button"
 import Modal from "../../../UI/MyProducts/Modal"
 import ProductForm from "../../../UI/MyProducts/ProductForm"
 import HeaderLink from "../../../UI/HeaderLink"

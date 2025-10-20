@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Contexts/AuthContext";
 import { Navigate } from "react-router-dom";
-import SendSellerRequest from "../components/user-stuff/myProducts/sendSellerRequest";
+import SendSellerRequest from "../components/user-stuff/myProducts/SendSellerRequest";
 import RequestHasBeenSent from "../components/user-stuff/myProducts/RequestHasBeenSent";
 
 
