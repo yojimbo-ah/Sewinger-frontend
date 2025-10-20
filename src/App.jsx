@@ -29,7 +29,7 @@ import ChatSection from './components/chat/ChatSection.jsx'
 import Profile from './components/profile/Profile.jsx'
 
 import ProductDetailsBought from './components/user-stuff/myProducts/productBoughtDetails/ProductDetailsBought.jsx'
-import ProductDetailsBoughtPage from './components/user-stuff/myProducts/productBoughtDetails/productDetailsBoughtPage.jsx'
+import ProductDetailsBoughtPage from './components/user-stuff/myProducts/productBoughtDetails/ProductDetailsBoughtPage.jsx'
 
 
 import NoChatSelectedPublic from './components/chat/UI/NoChatSelectedPublic.jsx'
