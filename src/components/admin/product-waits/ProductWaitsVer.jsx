@@ -7,7 +7,7 @@ import { PackageSearch } from "lucide-react"
 
 import EmptyMenu from "../../../UI/emptyMenu/EmptyMenu.jsx" ;
 import HeaderLink from "../../../UI/HeaderLink"
-import Item from "./item"
+import Item from "./Item"
 
 export default function ProductWaitsVer () {
     const {token} = useContext(AuthContext) ;
