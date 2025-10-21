@@ -1,4 +1,4 @@
-const REACT_APP_URL = import.meta.env.REACT_APP_URL ;
+const REACT_APP_URL = import.meta.env.VITE_REACT_APP_URL ;
 
 
 export async function getUserWhoBoughtProductQuery ({jwtToken , productId}) {

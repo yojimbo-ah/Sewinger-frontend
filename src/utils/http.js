@@ -1,5 +1,5 @@
 import {QueryClient} from '@tanstack/react-query'
-const REACT_APP_URL = import.meta.env.REACT_APP_URL ;
+const REACT_APP_URL = import.meta.env.VITE_REACT_APP_URL ;
 
 export const queryClient = new QueryClient() ;
 
