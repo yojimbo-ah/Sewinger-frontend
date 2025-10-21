@@ -4,7 +4,6 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import { getfriendsQuery } from "../../../utils/chathttp"
 import { isEmpty } from "../../../utils/helper"
 import { createGroupMutation } from "../../../utils/chathttp"
-import { queryClient } from "../../../utils/http"
 
 import ImgaeInput from "./ImageInput"
 import Input from "../../../UI/MyProducts/Input"
