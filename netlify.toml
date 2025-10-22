@@ -8,6 +8,13 @@
 
   # This status code makes it work as a proxy:
   status = 200
+[[redirects]]
+  # This matches all paths not covered by the rule above (e.g., /about, /dashboard)
+  from = "/*"
+  # This serves the main index file for any path
+  to = "/index.html"
+  # This status code makes it a rewrite (URL stays the same)
+  status = 200
 
 # If you already have build settings, add the rule ABOVE them
 [build]
