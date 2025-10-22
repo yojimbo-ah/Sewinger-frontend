@@ -2,6 +2,9 @@ import {  useState , useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 import { initSocket } from "../socket/socket";
 
+const REACT_BACKEND_URL = import.meta.env.VITE_REACT_API_URL ;
+
+
 function AuthProvider ({children}) {
     const [token , setToken] = useState(undefined) ;
     const [user , setUser] = useState({
@@ -57,7 +60,7 @@ function AuthProvider ({children}) {
                     setLoading(false)
                     return ;
                 }
-                const response = await fetch('http://localhost:3000/account/jwtVer' , {
+                const response = await fetch(`${REACT_BACKEND_URL}/account/jwtVer` , {
                     method : 'POST' ,
                     headers : {
                         'Content-Type' : 'application/json' ,
