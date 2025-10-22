@@ -1,9 +1,10 @@
 import io from 'socket.io-client' ;
+const REACT_APP_URL = import.meta.env.VITE_REACT_APP_URL ;
 
 let socket ;
 
 export const initSocket = (token) => {
-    socket = io('http://localhost:3000' , {
+    socket = io(REACT_APP_URL , {
         auth : {token} ,
         autoConnect : true
     })
