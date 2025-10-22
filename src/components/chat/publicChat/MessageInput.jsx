@@ -5,6 +5,8 @@ import { getSocket } from "../../../socket/socket";
 import { queryClient } from "../../../utils/http";
 import { imagesToPublicMutations } from "../../../utils/chathttp";
 
+const REACT_BACKEND_URL = import.meta.env.VITE_REACT_APP_URL ;
+
 // sockets are beign haneled here for real time updating of the public chat
 
 export default function MessageInput({ chatId }) {
@@ -79,7 +81,7 @@ export default function MessageInput({ chatId }) {
             formData.append('chatId', chatId);
 
             try {
-                const response = await fetch('http://localhost:3000/chat/images/public', {
+                const response = await fetch(`${REACT_BACKEND_URL}chat/images/public`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`

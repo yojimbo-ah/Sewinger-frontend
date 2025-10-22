@@ -4,6 +4,8 @@ import {getSocket} from '../../socket/socket';
 import { AuthContext } from '../../Contexts/AuthContext';
 import {queryClient} from '../../utils/http.js'
 
+const REACT_BACKEND_URL = import.meta.env.VITE_REACT_APP_URL ;
+
 export default function MessageInput ({friendId}) {
     const socket = getSocket() ;
     const {user , token} = useContext(AuthContext) ;
@@ -74,7 +76,7 @@ export default function MessageInput ({friendId}) {
             formData.append('friendId', friendId);
 
             try {
-                const response = await fetch('http://localhost:3000/chat/images/private', {
+                const response = await fetch(`${REACT_BACKEND_URL}/chat/images/private` , {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
