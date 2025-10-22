@@ -2,8 +2,8 @@ import {  useState , useEffect } from "react";
 import { AuthContext } from "./AuthContext";
 import { initSocket } from "../socket/socket";
 
-const REACT_BACKEND_URL = import.meta.env.VITE_REACT_API_URL ;
-
+const REACT_BACKEND_URL = import.meta.env.VITE_REACT_APP_URL ;
+console.log(REACT_BACKEND_URL) ;
 
 function AuthProvider ({children}) {
     const [token , setToken] = useState(undefined) ;
@@ -47,8 +47,9 @@ function AuthProvider ({children}) {
     useEffect(() => {
         async function reseting () {
 
-            if (token === undefined) return ;
+            if (token === undefined) return console.log('Still loading') ;
             if (token === null) {
+                console.log('Couldnt find the user')
                 setLoading(false) ;
                 return ;
             }
