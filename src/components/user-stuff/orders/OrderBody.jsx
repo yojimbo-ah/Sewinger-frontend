@@ -1,6 +1,10 @@
 import { Package, DollarSign, Hash, ShoppingBag } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function OrderBody({ item }) {
+    const naviagte = useNavigate() ;
+
+
     return (
         <div className="group bg-white rounded-lg border border-gray-200 p-6 shadow-md transition-all duration-300 hover:shadow-xl hover:border-orange-300 hover:-translate-y-1">
             {/* Product ID */}
@@ -13,7 +17,10 @@ export default function OrderBody({ item }) {
             </div>
 
             {/* Product Name */}
-            <div className="flex items-center space-x-2 mb-4">
+            <div onClick={() => {
+                naviagte(`/product/details/${item.itemId.toString()}`)
+            }}
+            className="flex items-center space-x-2 mb-4">
                 <ShoppingBag size={20} className="text-orange-500 flex-shrink-0" />
                 <h2 className="text-xl font-bold text-black group-hover:text-orange-600 transition-colors duration-200 line-clamp-2">
                     {item.name}
