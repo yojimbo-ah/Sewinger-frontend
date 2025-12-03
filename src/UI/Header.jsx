@@ -49,7 +49,7 @@ export default function Header() {
         {/* Logo - Hidden on mobile */}
         <div className="hidden md:flex basis-1/2 justify-center items-center text-4xl hover:text-3xl transition-all duration-500">
           <Link to="/">
-            <span className="text-orange-500">Sew</span>inger
+            <span className="text-orange-500">Pure</span>bytes
           </Link>
         </div>
 
