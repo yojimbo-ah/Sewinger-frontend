@@ -30,12 +30,12 @@ export default function PublicChat() {
     }
 
     return (
-        <div className="flex flex-col h-full">
+        <div className="flex h-full min-h-0 flex-col bg-gradient-to-br from-orange-50 via-white to-orange-50">
             <Modal ref={createChatRef}>
                 <CreateChat ref={createChatRef} />
             </Modal>
 
-            <div className="mb-4 ml-3 flex items-center gap-4">
+            <div className="mb-4 ml-3 flex shrink-0 flex-wrap items-center gap-4 pt-3 pr-3">
                 {/* Mobile Menu Toggle Button */}
                 <button
                     onClick={toggleMobileSidebar}
@@ -52,9 +52,9 @@ export default function PublicChat() {
                 <ChatHeader onClick={() => createChatRef.current.open()} />
             </div>
 
-            <div className="flex h-full relative">
+            <div className="relative flex min-h-0 flex-1 overflow-hidden">
                 {/* Desktop Sidebar - Always visible on medium+ screens */}
-                <div className="hidden md:block">
+                <div className="hidden h-full md:block md:w-80 md:shrink-0">
                     {data && <PublicChatSideBar chats={data.userChats} />}
                 </div>
 
@@ -68,7 +68,7 @@ export default function PublicChat() {
 
                 {/* Mobile Sidebar - Slides from left */}
                 <div
-                    className={`md:hidden fixed top-0 left-0 h-full w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+                    className={`md:hidden fixed top-16 left-0 h-[calc(100vh-64px)] w-80 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
                         isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'
                     }`}
                 >
@@ -84,7 +84,7 @@ export default function PublicChat() {
                     </div>
 
                     {/* Sidebar Content */}
-                    <div className="overflow-y-auto h-[calc(100%-72px)]" onClick={closeMobileSidebar}>
+                    <div className="h-[calc(100%-72px)] overflow-y-auto" onClick={closeMobileSidebar}>
                         {data && <PublicChatSideBar chats={data.userChats} />}
                     </div>
 
@@ -93,7 +93,7 @@ export default function PublicChat() {
                 </div>
 
                 {/* Main Chat Area */}
-                <div className="flex-1">
+                <div className="flex min-h-0 min-w-0 flex-1 overflow-hidden">
                     {/*the outlet here displays either the selected chat 
                     if it was selected else it would display the components that for
                     the case of no chat was selected

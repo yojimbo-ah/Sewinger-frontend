@@ -20,9 +20,9 @@ export default function FriendsRequests ({changePage , currentPage}) {
 
     console.log('this is the data') ;
     console.log(data) ;
-    return <div className="flex flex-col">
+    return <div className="flex min-h-0 flex-col gap-6 px-4 pt-4 md:px-6 lg:px-8">
         <Header currentPage={currentPage} changePage={changePage} />
-        <div className="flex gap-4 mt-8 mx-6">
+        <div className="flex flex-wrap gap-4">
             {data && data.friendsRequests.map(request => {
                 return <FriendRequestItem key={request.friendId} data={request} />
             })}

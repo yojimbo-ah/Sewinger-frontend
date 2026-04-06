@@ -30,15 +30,15 @@ export default function AddFriend ({currentPage , changePage}) {
     console.log(tag)
 
     let isValid = tag === '' ;
-    return <div className="flex flex-col">
+    return <div className="flex min-h-0 flex-col gap-6 px-4 pt-4 md:px-6 lg:px-8">
         <Header currentPage={currentPage} changePage={changePage} />
-        <div className="flex justify-center w-full items-center mt-8 gap-x-1">
-            <input onChange={(event) => handleChangeTag(event)} className="bg-orange-100 pl-3 border-orange-500 border-2 shadow-lg shadow-orange-100 rounded-tl-2xl rounded-bl-2xl h-12 w-1/4" type="text" />
-            <button onClick={refetch} disabled={isLoading || isValid} className="bg-gray-300 shadow-md shadow-gray-100 h-12 w-12 rounded-tr-2xl rounded-br-2xl flex justify-center items-center">
+        <div className="flex w-full items-center justify-center gap-x-1">
+            <input onChange={(event) => handleChangeTag(event)} className="h-12 w-full max-w-md rounded-tl-2xl rounded-bl-2xl border-2 border-orange-500 bg-orange-50 pl-3 shadow-lg shadow-orange-100 outline-none transition-colors focus:bg-white" type="text" />
+            <button onClick={refetch} disabled={isLoading || isValid} className="flex h-12 w-12 items-center justify-center rounded-tr-2xl rounded-br-2xl bg-gray-300 shadow-md shadow-gray-100 transition-colors hover:bg-gray-400 disabled:cursor-not-allowed disabled:opacity-60">
                 <Search />
             </button>
         </div>
-        {data && !isLoading && <div className="flex  ml-8 mt-8 gap-4">
+        {data && !isLoading && <div className="flex flex-wrap gap-4">
             {data.users.map(data => {
                 return <AddFriendItem data={data} key={data._id} tag={tag} />
             })}

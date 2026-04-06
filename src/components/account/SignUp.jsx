@@ -4,14 +4,12 @@ import ErrorParagraph from "../../UI/ErrorParagraph.jsx"
 
 import { Link , useNavigate} from "react-router-dom"
 import { useMutation } from "@tanstack/react-query"
-import { useState  } from "react"
-
+import { useState  } from "react" ;
 import { isEmail , isEmpty , isLength } from "../../utils/helper.js"
 import { fetchSignup } from "../../utils/http.js"
 
 const min = 6 ;
 const max = 20 ;
-
 
 export default function Login () {
     const [currentFrom , setCurrentForm] = useState({
@@ -306,7 +304,7 @@ export default function Login () {
         }
     }
 
-
+    
     function handleFocus (name) {
         setFocussed(prev => {
             return {

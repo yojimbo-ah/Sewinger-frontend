@@ -8,25 +8,10 @@ import ChatContext from "../../Contexts/ChatCreateContext";
 import { useNavigate } from "react-router-dom";
 
 export default function ChatSection({}) {
-  const {chatDetails} = useContext(ChatContext) ;
-  const friendId = chatDetails.friendId ;
-  const navigate = useNavigate() ;
-
-  if (!friendId) {
-    return (
-      <div className="flex items-center justify-center h-full bg-gradient-to-b from-orange-50 to-orange-100">
-        <div className="text-center">
-          <div className="w-20 h-20 rounded-full bg-orange-200 flex items-center justify-center mx-auto mb-4">
-            <CircleUser size={48} className="text-orange-600" />
-          </div>
-          <h3 className="text-xl font-semibold text-gray-800">No chat selected</h3>
-          <p className="text-gray-600 mt-2">Select a friend to start chatting</p>
-        </div>
-      </div>
-    );
-  }
-  
   const { token, user } = useContext(AuthContext);
+  const { chatDetails } = useContext(ChatContext);
+  const friendId = chatDetails.friendId;
+  const navigate = useNavigate();
   const messagesEndRef = useRef();
   
   const { data, isPending } = useQuery({
@@ -34,29 +19,39 @@ export default function ChatSection({}) {
     queryFn: () => {
       return getUserChat({ jwtToken: token, friendId: friendId });
     },
+    enabled: !!friendId,
   });
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [data?.chat?.messages]);
 
-  console.log(data)
+  if (!friendId) {
+    return (
+      <div className="flex min-h-0 flex-1 items-center justify-center bg-gradient-to-br from-orange-50 via-white to-orange-50 p-6">
+        <div className="max-w-md rounded-3xl border border-orange-200 bg-white/90 p-8 text-center shadow-xl backdrop-blur-sm">
+          <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-orange-100 to-orange-200 shadow-md">
+            <CircleUser size={44} className="text-orange-600" />
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800">No chat selected</h3>
+          <p className="mt-2 text-gray-600">Select a friend to start chatting</p>
+        </div>
+      </div>
+    );
+  }
 
   if (isPending) return (
-    <div className="flex items-center justify-center h-full">
-      <div className="animate-spin rounded-full h-12 w-12 border-4 border-orange-500 border-t-transparent"></div>
+    <div className="flex min-h-0 flex-1 items-center justify-center bg-gradient-to-br from-orange-50 via-white to-orange-50">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-orange-500 border-t-transparent"></div>
     </div>
   );
   
-  console.log(friendId);
-  
   return (
-    <div className="flex flex-col h-full w-full bg-gradient-to-b from-orange-50 to-orange-100">
+    <div className="flex min-h-0 h-full w-full flex-col bg-gradient-to-br from-orange-50 via-white to-orange-50">
       {/* Header Section */}
-      <div className="flex items-center p-4 bg-gradient-to-r from-orange-500 to-orange-600 shadow-lg
-                   border-b-2 border-orange-700">
+      <div className="flex items-center gap-3 border-b border-orange-200 bg-white/85 p-4 shadow-sm backdrop-blur-sm">
         <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 mr-3 
-                      ring-2 ring-white shadow-md transition-transform duration-300 
+                      ring-2 ring-orange-100 shadow-md transition-transform duration-300 
                       hover:scale-110">
           {data?.friend?.profileImage ? (
             <img 
@@ -70,13 +65,13 @@ export default function ChatSection({}) {
             </div>
           )}
         </div>
-        <h2 className="font-bold text-white text-lg tracking-wide">
+        <h2 className="font-semibold text-gray-900 text-lg tracking-wide">
           {data?.friend?.name ? `${data.friend.name.firstName} ${data.friend.name.lastName}` : 'Unknown User'}
         </h2>
       </div>
 
       {/* Messages Container */}
-      <div className="flex-1 overflow-y-auto p-4 bg-gradient-to-b from-orange-50 via-white to-orange-50">
+      <div className="min-h-0 flex-1 overflow-y-auto p-4 bg-[radial-gradient(circle_at_top,_rgba(255,237,213,0.35),_transparent_35%),linear-gradient(to_bottom,_#fff,_#fff7ed)]">
         <div className="space-y-4">
           {data &&
             data.chat.messages.map((message, index) => {
@@ -112,11 +107,10 @@ export default function ChatSection({}) {
 
                   {/* Message Bubble */}
                   <div
-                    className={`px-4 py-3 rounded-2xl max-w-[75%] shadow-md 
-                              transition-all duration-300 hover:shadow-lg hover:scale-[1.02]
+                    className={`max-w-[75%] rounded-2xl px-4 py-3 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.02]
                               ${isMe
                                 ? "bg-gradient-to-br from-orange-500 to-orange-600 text-white"
-                                : "bg-white text-gray-800 border border-orange-200"
+                                : "border border-orange-100 bg-white text-gray-800"
                               }`}
                   >
                     {/* Text Message */}
@@ -167,7 +161,7 @@ export default function ChatSection({}) {
       </div>
 
       {/* Message Input */}
-      <div className="bg-gradient-to-r from-orange-100 to-orange-50 border-t-2 border-orange-300 p-4 shadow-lg">
+      <div className="border-t border-orange-200 bg-white/90 p-4 shadow-[0_-8px_24px_rgba(249,115,22,0.08)] backdrop-blur-sm">
         <MessageInput friendId={friendId} />
       </div>
 

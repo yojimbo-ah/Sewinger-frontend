@@ -104,14 +104,15 @@ export async function fetchSignupVer ({token , status}) {
     return await response.json() ;
 }
 
-export async function fetchProducts () {
-    const response = await fetch(`${REACT_APP_URL}/product/normal`) ;
+export async function fetchProducts ({page = 1}) {
+    const response = await fetch(`${REACT_APP_URL}/product/normal?page=${page}`) ;
     if (!response.ok) {
-        const error = new Error('error happened') ;
+        const error = new Error('Error fetching products') ;
         error.info = await response.json() ;
+        throw error;
     }
-    const {products} = await response.json() ;
-    return await products ;
+    const result = await response.json() ;
+    return result ;
 }
 
 export async function fetchUserProducts ({token , valid , signal}) {

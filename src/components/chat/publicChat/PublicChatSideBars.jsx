@@ -2,7 +2,7 @@ import GroupChat from "./GroupChat";
 
 export default function PublicChatSideBar({ chats }) {
     return (
-        <div className="w-full md:basis-1/4 flex flex-col gap-2 h-full bg-gradient-to-b from-orange-100 to-orange-50 p-3 md:border-r border-orange-200 shadow-sm overflow-y-auto">
+        <div className="flex h-full w-80 shrink-0 flex-col gap-2 overflow-y-auto border-r border-orange-200 bg-gradient-to-b from-orange-100 to-orange-50 p-3 shadow-sm">
             {chats && chats.length > 0 ? (
                 chats.map(data => {
                     return <GroupChat key={data.chat} data={data} />

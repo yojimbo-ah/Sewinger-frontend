@@ -46,7 +46,6 @@ function AuthProvider ({children}) {
 
     useEffect(() => {
         async function reseting () {
-
             if (token === undefined) return console.log('Still loading') ;
             if (token === null) {
                 console.log('Couldnt find the user')

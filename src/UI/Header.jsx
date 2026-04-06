@@ -99,7 +99,7 @@ export default function Header() {
 
       <Modal ref={modelRef} />
 
-      <div className="pt-16 md:pt-24 h-[calc(100vh-64px)] md:h-[calc(100vh-80px)]">
+      <div className="pt-16 md:pt-20 w-full h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] overflow-hidden flex flex-col">
         <Outlet />
       </div>
     </div>

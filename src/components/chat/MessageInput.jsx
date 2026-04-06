@@ -146,23 +146,19 @@ export default function MessageInput ({friendId}) {
             )}
 
             {/* Input Bar */}
-            <div className='flex gap-2 items-center'>
+            <div className='flex flex-col gap-2 sm:flex-row sm:items-end'>
                 <textarea 
                     onChange={handleMessageChange}
-                    className="flex-1 h-12 px-4 py-3 rounded-xl 
-                             bg-white border-2 border-gray-200
-                             focus:border-orange-400 focus:outline-none
-                             transition-all duration-200
-                             placeholder:text-gray-400
-                             resize-none" 
+                    className="min-h-12 flex-1 rounded-xl border-2 border-gray-200 bg-white px-4 py-3 shadow-sm transition-all duration-200 placeholder:text-gray-400 focus:border-orange-400 focus:outline-none resize-none" 
                     value={message} 
                     placeholder='Type a message...'
-                />``
+                />
                 
                 <button
                     disabled={loading}
                     onClick={handleImageSelect}
-                    className='w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-500 
+                    type="button"
+                    className='w-12 h-12 shrink-0 bg-gradient-to-br from-orange-400 to-orange-500 
                              rounded-xl flex items-center justify-center
                              shadow-md transition-all duration-200
                              hover:from-orange-500 hover:to-orange-600 
@@ -175,6 +171,7 @@ export default function MessageInput ({friendId}) {
                 </button>
 
                 <button 
+                    type="button"
                     onClick={sendMessage} 
                     disabled={!validMessage || loading} 
                     className='px-5 h-12 bg-gradient-to-br from-orange-500 to-orange-600 
